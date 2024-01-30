@@ -1,6 +1,6 @@
 lua
 -- Wrap the monitor above the computer
-local monitor = peripheral.wrap("top")
+monitor = peripheral.wrap("top")
 
 -- Make sure to check if the monitor is connected
 if not monitor then
