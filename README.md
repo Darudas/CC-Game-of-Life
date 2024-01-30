@@ -1,3 +1,9 @@
+Just a reupload of the pastebin as it is not anylonger available over there http://pastebin.com/Mw8anZGr
+
+Original Video
+https://www.youtube.com/watch?v=m5DUoCiq6Ag
+
+
 -- # CC-Game-of-Life
 
 -- ComputerCraft Game of Life
