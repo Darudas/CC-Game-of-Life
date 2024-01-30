@@ -1,3 +1,5 @@
+-- Edit by Darudas
+
 -- Wrap the monitor above the computer
 monitor = peripheral.wrap("top")
 
