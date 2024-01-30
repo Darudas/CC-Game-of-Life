@@ -1,12 +1,12 @@
--- Wrap the monitor above the computer
+            -- Wrap the monitor above the computer
 local monitor = peripheral.wrap("top")
 
--- Make sure to check if the monitor is connected
+            -- Make sure to check if the monitor is connected
 if not monitor then
   error("No monitor found on top")
 end
 
--- Set the monitor's text scale
+            -- Set the monitor's text scale
 monitor.setTextScale(0.5) -- Adjust as needed for your monitor size
 
 local w = 82
@@ -30,10 +30,12 @@ for ih = 1, h do
 end
 
 local function printGrid()
-    monitor.clear()
+    --monitor.clear()
+    device.clear()
     for ih = 1, h do
         for iw = 1, w do
-            monitor.setCursorPos(iw, ih)
+            --monitor.setCursorPos(iw, ih)
+            device.setCursorPos(iw, ih)
             if grid[ih][iw] then
                 monitor.setTextColor(colors.lime)
                 monitor.write("@")
@@ -86,10 +88,34 @@ sleep(1)
 term.write("1... ")
 sleep(1)
 
-           -- ... Game-loop
+           -- Function to handle right-clicks on the monitor
+local function handleRightClick(x, y)
+    -- Toggle the cell state at the clicked position
+    local ih = y
+    local iw = math.ceil(x / 2) -- Adjust if you're using two characters per cell
+    grid[ih][iw] = not grid[ih][iw]
+end
+
+
+--[[            -- ... In the main loop, pass the monitor to the functions
 while true do
     calcNext()
     setNext()
-    printGrid()
+    printGrid(monitor) -- Pass the monitor here
     sleep(0.1)
+end
+]]--
+
+-- Main event loop
+while true do
+    -- Handle events
+    local event, side, x, y = os.pullEvent()
+    if event == "monitor_touch" and side == "top" then
+        handleRightClick(x, y)
+    elseif event == "timer" then -- You can use a timer event to update the grid
+        calcNext()
+        setNext()
+        printGrid(monitor)
+        sleep(0.1)
+    end
 end
