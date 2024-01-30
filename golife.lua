@@ -7,29 +7,6 @@ if not monitor then
   error("No monitor found on top")
 end
 
--- Set the monitor's text scale if needed
-monitor.setTextScale(0.5) -- Adjust as needed for your monitor size
-
-function printGrid()
-    monitor.clear()
-    for ih = 1, h do
-        for iw = 1, w do
-            monitor.setCursorPos(iw, ih) -- Set cursor for each cell
-            if grid[ih][iw] then
-                monitor.setTextColor(colors.lime)
-                monitor.write("@")
-            else
-                monitor.setTextColor(colors.black)
-                monitor.write(" ")
-            end
-        end
-    end
-end
-
-
-
-
-
 
 w = 41
 h = 33
