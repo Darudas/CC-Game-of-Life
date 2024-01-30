@@ -9,8 +9,8 @@ end
 -- Set the monitor's text scale
 monitor.setTextScale(0.5) -- Adjust as needed for your monitor size
 
-local w = 41
-local h = 33
+local w = 82
+local h = 66
 
 local grid = {}
 for ih = 1, h do
