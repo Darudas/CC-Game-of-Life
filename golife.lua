@@ -94,3 +94,4 @@ while(true) do
 	printGrid()
 	sleep(0.1)
 end
+end
