@@ -41,7 +41,7 @@ function printGrid()
                 monitor.write("@")
 			else
 			
-			monitor.setTextColor(colors.black)
+			monitor.setTextColor(colors.red)
                 	monitor.write(" ")
 		end
 	end
@@ -93,5 +93,4 @@ while(true) do
 	setNext()
 	printGrid()
 	sleep(0.1)
-end
 end
